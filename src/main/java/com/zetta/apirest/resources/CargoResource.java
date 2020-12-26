@@ -40,10 +40,27 @@ public class CargoResource {
 		return cargoRepository.findById(id);
 	}
 	
+	@ApiOperation(value="Busca um cargo pela descricao")
+	@GetMapping("/cargo/descricao/{cargo}")
+	public Cargo buscaCargoDescricao(@PathVariable(value="cargo") String cargo){
+		return cargoRepository.findByCargo(cargo);		
+	}
+	
 	@PostMapping("/cargo")
 	@ApiOperation(value="Salva o registro de cargo")
 	public Cargo salvaCargo(@RequestBody Cargo cargo) {
-		return cargoRepository.save(cargo);		
+		
+		Cargo cargoDuplicado;// para verificar se esse cargo ja está cadastrado
+				
+		cargoDuplicado = this.buscaCargoDescricao(cargo.getCargo());	
+
+		
+		if (cargoDuplicado == null) {		
+			return cargoRepository.save(cargo);	
+		}else {
+			return cargoDuplicado;
+		}
+		
 	}
 	
 
