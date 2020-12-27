@@ -31,7 +31,7 @@ public class CargoResource {
 	@GetMapping("/cargos")
 	@ApiOperation(value="Retorna todos os cargos cadastradas")
 	public List<Cargo> listaCargos(){
-		return cargoRepository.findAll();
+		return cargoRepository.findAllById();
 	}
 	
 	@ApiOperation(value="Busca um cargo pelo id")
