@@ -46,6 +46,7 @@ public class UsuarioResource {
 		return usuarioRepository.findByCpf(cpf);		
 	}
 	
+	
 	@PostMapping("/usuario")
 	@ApiOperation(value="Salva o registro de usuario")
 	public Usuario salvaUsuario(@RequestBody Usuario usuario) {
