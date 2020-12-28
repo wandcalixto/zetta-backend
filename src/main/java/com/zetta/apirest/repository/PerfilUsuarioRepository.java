@@ -8,4 +8,3 @@ public interface PerfilUsuarioRepository extends JpaRepository<PerfilUsuario, Lo
 
 	PerfilUsuario findById(long id);
 }
-
