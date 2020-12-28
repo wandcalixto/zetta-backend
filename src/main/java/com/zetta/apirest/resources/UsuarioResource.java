@@ -40,6 +40,12 @@ public class UsuarioResource {
 		return usuarioRepository.findById(id);
 	}
 	
+	@ApiOperation(value="Busca um usuario pelo cpf")
+	@GetMapping("/usuario/cpf/{cpf}")
+	public Usuario buscaUsuarioCpf(@PathVariable(value="cpf") String cpf){
+		return usuarioRepository.findByCpf(cpf);		
+	}
+	
 	@PostMapping("/usuario")
 	@ApiOperation(value="Salva o registro de usuario")
 	public Usuario salvaUsuario(@RequestBody Usuario usuario) {

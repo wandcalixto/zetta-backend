@@ -7,6 +7,8 @@ import com.zetta.apirest.models.Usuario;
 public interface UsuarioRepository extends JpaRepository<Usuario, Long> {
 
 	Usuario findById(long id);
+
+	Usuario findByCpf(String cpf);
 }
 
 
