@@ -41,6 +41,12 @@ public class PerfilUsuarioResource {
 		return perfilUsuarioRepository.findById(id);
 	}
 	
+	@ApiOperation(value="Busca um perfil de usuario pelo nomePerfilUsuario")
+	@GetMapping("/perfilUsuario/nomePerfilUsuario/{nomePerfilUsuario}")
+	public PerfilUsuario buscaPerfilUsuarioNomePerfilUsuario(@PathVariable(value="nomePerfilUsuario") String nomePerfilUsuario){
+		return perfilUsuarioRepository.findByNomePerfilUsuario(nomePerfilUsuario);		
+	}
+	
 	@PostMapping("/perfilUsuario")
 	@ApiOperation(value="Salva o registro de perfil de usuario")
 	public PerfilUsuario salvaPerfilUsuario(@RequestBody PerfilUsuario perfilUsuario) {

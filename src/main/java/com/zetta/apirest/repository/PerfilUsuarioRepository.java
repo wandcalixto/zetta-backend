@@ -7,4 +7,6 @@ import com.zetta.apirest.models.PerfilUsuario;
 public interface PerfilUsuarioRepository extends JpaRepository<PerfilUsuario, Long> {
 
 	PerfilUsuario findById(long id);
+
+	PerfilUsuario findByNomePerfilUsuario(String nomePerfilUsuario);
 }
