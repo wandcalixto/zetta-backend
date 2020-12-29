@@ -1,5 +1,7 @@
 package com.zetta.apirest.resources;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -43,6 +45,10 @@ public class PerfilUsuarioResource {
 	@PostMapping("/perfilUsuario")
 	@ApiOperation(value="Salva o registro de perfil de usuario")
 	public PerfilUsuario salvaPerfilUsuario(@RequestBody PerfilUsuario perfilUsuario) {
+		Date dataAtual = new Date(); 
+		SimpleDateFormat formatador = new SimpleDateFormat("dd/MM/yyyy kk:mm:ss");
+		String data = formatador.format(dataAtual);
+		perfilUsuario.setDataCadastroUsuario(data);//setamos a data do cadastro para a atual
 		return perfilUsuarioRepository.save(perfilUsuario);		
 	}
 	
