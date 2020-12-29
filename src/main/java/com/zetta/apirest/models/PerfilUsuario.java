@@ -17,44 +17,21 @@ public class PerfilUsuario implements Serializable{
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private long id;	
-	private String nomeUsuario;
-	private long idPessoa;
-	private long idCargo;
-	private String dataCadastroUsuario;
+	private String nomePerfilUsuario;
+
+
 	public long getId() {
 		return id;
 	}
 	public void setId(long id) {
 		this.id = id;
 	}
-	public String getNomeUsuario() {
-		return nomeUsuario;
+	public String getNomePerfilUsuario() {
+		return nomePerfilUsuario;
 	}
-	public void setNomeUsuario(String nomeUsuario) {
-		this.nomeUsuario = nomeUsuario;
+	public void setNomePerfilUsuario(String nomePerfilUsuario) {
+		this.nomePerfilUsuario = nomePerfilUsuario;
 	}
-	public long getIdPessoa() {
-		return idPessoa;
-	}
-	public void setIdPessoa(long idPessoa) {
-		this.idPessoa = idPessoa;
-	}
-	public long getIdCargo() {
-		return idCargo;
-	}
-	public void setIdCargo(long idCargo) {
-		this.idCargo = idCargo;
-	}
-	public String getDataCadastroUsuario() {
-		return dataCadastroUsuario;
-	}
-	public void setDataCadastroUsuario(String dataCadastroUsuario) {
-		this.dataCadastroUsuario = dataCadastroUsuario;
-	}
-	
-	
-	
-	
 	
 
 }
