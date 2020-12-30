@@ -16,7 +16,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.zetta.apirest.models.Cargo;
 import com.zetta.apirest.models.Usuario;
+import com.zetta.apirest.repository.CargoRepository;
 import com.zetta.apirest.repository.UsuarioRepository;
 
 import io.swagger.annotations.Api;
@@ -30,6 +32,9 @@ public class UsuarioResource {
 	
 	@Autowired
 	UsuarioRepository usuarioRepository;
+	
+	@Autowired
+	CargoRepository cargoRepository;
 	
 	@GetMapping("/usuarios")
 	@ApiOperation(value="Retorna todos os usuarios cadastradas")
@@ -50,13 +55,19 @@ public class UsuarioResource {
 	}
 	
 	
-	@PostMapping("/usuario")
+	@PostMapping("/usuario/{id_cargo}")
 	@ApiOperation(value="Salva o registro de usuario")
-	public Usuario salvaUsuario(@RequestBody Usuario usuario) {
+	public Usuario salvaUsuario(@RequestBody Usuario usuario, @PathVariable(value="id_cargo") long id_cargo) {			
+		
+		Cargo cargo =  cargoRepository.findById(id_cargo);//aqui buscamos o cargo referenciado
+		
+		usuario.setCargo(cargo);//e aqui setamos para inserção
+		
 		Date dataAtual = new Date(); 
 		SimpleDateFormat formatador = new SimpleDateFormat("dd/MM/yyyy kk:mm:ss");
 		String data = formatador.format(dataAtual);
 		usuario.setDataCadastro(data);//setamos a data do cadastro para a atual
+		
 		return usuarioRepository.save(usuario);		
 	}
 	

@@ -32,6 +32,6 @@ public class PerfilUsuario implements Serializable{
 	public void setNomePerfilUsuario(String nomePerfilUsuario) {
 		this.nomePerfilUsuario = nomePerfilUsuario;
 	}
-	
+
 
 }
