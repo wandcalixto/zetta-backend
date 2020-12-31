@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
@@ -26,10 +27,11 @@ public class Usuario extends Pessoa{
 	@ManyToOne
 //	@JoinTable(name="cargo_usuario", joinColumns = @JoinColumn(name="id"), inverseJoinColumns = @JoinColumn(name="id"))
 	private Cargo cargo;
-	
+
 	@ManyToMany
 	@JoinTable(name="tb_usuario_com_perfil_usuario", joinColumns = @JoinColumn(name="usuario_id"), inverseJoinColumns = @JoinColumn(name="perfilUsuario_id"))
 	private List<PerfilUsuario> perfilUsuarios;
+
 
 	public String getDataCadastro() {
 		return dataCadastro;
@@ -43,12 +45,14 @@ public class Usuario extends Pessoa{
 	public void setCargo(Cargo cargo) {
 		this.cargo = cargo;
 	}
+
 	public List<PerfilUsuario> getPerfilUsuarios() {
 		return perfilUsuarios;
 	}
 	public void setPerfilUsuarios(List<PerfilUsuario> perfilUsuarios) {
 		this.perfilUsuarios = perfilUsuarios;
 	}
+
 
 	
 	

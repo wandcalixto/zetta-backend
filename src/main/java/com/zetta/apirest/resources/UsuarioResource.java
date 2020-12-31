@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+
 import com.zetta.apirest.models.Usuario;
 import com.zetta.apirest.repository.CargoRepository;
 import com.zetta.apirest.repository.UsuarioRepository;
@@ -54,9 +55,11 @@ public class UsuarioResource {
 	}
 	
 	
-	@PostMapping("/usuario")
+	@PostMapping("/usuario/{id_cargo}")
 	@ApiOperation(value="Salva o registro de usuario")
+
 	public Usuario salvaUsuario(@RequestBody Usuario usuario) {					
+
 		
 		Date dataAtual = new Date(); 
 		SimpleDateFormat formatador = new SimpleDateFormat("dd/MM/yyyy kk:mm:ss");
