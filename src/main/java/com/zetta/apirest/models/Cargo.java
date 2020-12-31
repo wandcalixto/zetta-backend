@@ -2,6 +2,7 @@ package com.zetta.apirest.models;
 
 import java.io.Serializable;
 
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -18,6 +19,11 @@ public class Cargo implements Serializable{
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private long id;	
 	private String cargo;
+	
+//	@OneToMany
+//	@JoinColumn(name= "cargo_id")
+//	private List<Usuario> usuarios;
+	
 	public long getId() {
 		return id;
 	}
@@ -30,6 +36,13 @@ public class Cargo implements Serializable{
 	public void setCargo(String cargo) {
 		this.cargo = cargo;
 	}
+//	public List<Usuario> getUsuarios() {
+//		return usuarios;
+//	}
+//	public void setUsuarios(List<Usuario> usuarios) {
+//		this.usuarios = usuarios;
+//	}
+	
 	
 	
 	
