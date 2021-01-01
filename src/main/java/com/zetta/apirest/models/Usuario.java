@@ -25,7 +25,6 @@ public class Usuario extends Pessoa{
 
 	
 	@ManyToOne
-//	@JoinTable(name="cargo_usuario", joinColumns = @JoinColumn(name="id"), inverseJoinColumns = @JoinColumn(name="id"))
 	private Cargo cargo;
 
 	@ManyToMany

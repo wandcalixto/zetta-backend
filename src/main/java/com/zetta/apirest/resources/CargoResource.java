@@ -28,10 +28,14 @@ public class CargoResource {
 	@Autowired
 	CargoRepository cargoRepository;
 	
-	@GetMapping("/cargos")
+	@GetMapping("/cargos/{ordem}")
 	@ApiOperation(value="Retorna todos os cargos cadastradas")
-	public List<Cargo> listaCargos(){
-		return cargoRepository.findAllById();
+	public List<Cargo> listaCargos(@PathVariable(value="ordem") String ordem){
+		if(ordem.equals("id")) {
+			return cargoRepository.findAllOrderById();
+		}else {
+			return cargoRepository.findAllOrderByCargo();
+		}		
 	}
 	
 	@ApiOperation(value="Busca um cargo pelo id")

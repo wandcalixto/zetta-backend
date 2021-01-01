@@ -14,6 +14,9 @@ public interface CargoRepository extends JpaRepository<Cargo, Long> {
 	Cargo findByCargo(String cargo);
 	
 	@Query("SELECT obj FROM Cargo obj ORDER BY obj.id")
-	List<Cargo> findAllById();
+	List<Cargo> findAllOrderById();	
+	
+	@Query("SELECT obj FROM Cargo obj ORDER BY obj.cargo")
+	List<Cargo> findAllOrderByCargo();
 }
 

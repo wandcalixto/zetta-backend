@@ -29,10 +29,15 @@ public class PerfilUsuarioResource {
 	@Autowired
 	PerfilUsuarioRepository perfilUsuarioRepository;
 	
-	@GetMapping("/perfilUsuarios")
+	@GetMapping("/perfilUsuarios/{ordem}")
 	@ApiOperation(value="Retorna todos os perfis de usuarios cadastradas")
-	public List<PerfilUsuario> listaPerfilUsuarios(){
-		return perfilUsuarioRepository.findAll();
+	public List<PerfilUsuario> listaPerfilUsuarios(@PathVariable(value="ordem") String ordem){
+		if(ordem.equals("id")) {
+			return perfilUsuarioRepository.findAllOrderById();
+		}else {
+			return perfilUsuarioRepository.findAllOrderByNomePerfilUsuario();
+		}
+		
 	}
 	
 	@ApiOperation(value="Busca uma perfil de usuario pelo id")

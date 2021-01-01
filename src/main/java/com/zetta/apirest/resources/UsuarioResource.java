@@ -36,10 +36,14 @@ public class UsuarioResource {
 	@Autowired
 	CargoRepository cargoRepository;
 	
-	@GetMapping("/usuarios")
+	@GetMapping("/usuarios/{ordem}")
 	@ApiOperation(value="Retorna todos os usuarios cadastradas")
-	public List<Usuario> listaUsuarios(){
-		return usuarioRepository.findAll();
+	public List<Usuario> listaUsuarios(@PathVariable(value="ordem") String ordem){
+		if(ordem.equals("id")) {
+			return usuarioRepository.findAllOrderById();
+		}else {
+			return usuarioRepository.findAllOrderByNome();
+		}	
 	}
 	
 	@ApiOperation(value="Busca um usuario pelo id")
