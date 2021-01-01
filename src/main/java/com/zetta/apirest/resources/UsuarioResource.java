@@ -55,7 +55,7 @@ public class UsuarioResource {
 	}
 	
 	
-	@PostMapping("/usuario/{id_cargo}")
+	@PostMapping("/usuario")
 	@ApiOperation(value="Salva o registro de usuario")
 
 	public Usuario salvaUsuario(@RequestBody Usuario usuario) {					
